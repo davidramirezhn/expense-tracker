@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* Body style */
 body {
     margin: 0;
@@ -12,12 +14,14 @@ body {
     display: flex;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px; /* Adjust the value to control the roundness */
 }
 
 /* Input container (25% width, full height, leftmost) */
 .input-container {
- text-align: center;
-    width: 28%;
+    text-align: center;
+    width: 25%;
     padding: 20px;
     background: linear-gradient(#fff, #fff) 35%, #e3e3e3 65%;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
@@ -41,9 +45,9 @@ body {
     background-color: #45a049;
 }
 
-/* History container (70% width, topmost, scrollable) */
+/* History container (75% width, topmost, scrollable) */
 .history-container {
-    width: 70%;
+    width: 75%;
     padding: 20px;
     background-color: #fff; /* White background */
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
@@ -53,7 +57,6 @@ body {
     margin-bottom: 10px; /* Add margin to create space */
     border-radius: 10px; /* Adjust the value to control the roundness */
     overflow-y: auto; /* Enable vertical scrolling if needed */
-    padding: 20px;
 }
 
 /* Calendar and Categorized Summary containers (both squared) */
@@ -61,7 +64,37 @@ body {
 .categorized-container {
     flex: 1; /* Equal width, takes remaining space */
     padding: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+    margin-right: 10px; /* Add margin to create space */
+    margin-left: 10px; /* Add margin to create space */
+    margin-top: 10px; /* Add margin to create space */
+    margin-bottom: 10px; /* Add margin to create space */
+    border-radius: 10px; /* Adjust the value to control the roundness */
 }
+
+/* Additional styling for the expense history table */
+.history-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.history-container th, .history-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.history-container th {
+    background-color: #f2f2f2;
+}
+
+.history-container .delete-btn {
+    cursor: pointer;
+    color: red;
+}
+
 
 horizontal-line {
     border: none;
