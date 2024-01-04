@@ -7,7 +7,7 @@
     <title>DRH - Expense Tracker</title>
         <style>
         /* Additional styling for the expense history table */
-        table {
+table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
@@ -27,6 +27,26 @@
             cursor: pointer;
             color: red;
         }
+
+        /* Make the history container scrollable */
+        .history-container {
+            overflow-y: auto;
+        }
+
+        /* Ensure full width for the history table */
+        .history-container table {
+            width: 100%;
+        }
+
+        /* Categorized container styling */
+        .categorized-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+            border-radius: 10px; /* Adjust the value to control the roundness */
+        }
+    </style>
     </style>
 </head>
 <body>
@@ -55,6 +75,7 @@
         </form>
 
         <!-- History container (70% width, topmost, scrollable) -->
+      <!-- History container (70% width, topmost, scrollable) -->
     <div class="history-container">
         <h2>Expense History</h2>
         <table>
@@ -74,28 +95,24 @@
             </tbody>
         </table>
     </div>
-        
-        <!-- Calendar container (Squared) -->
-        <div class="calendar-container">
-            <!-- Add your calendar content here -->
-        </div>
 
-        <div class="categorized-container">
-    <h2>Categorized Summary</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Frequency</th>
-                <th>Total</th>
-                <th>Average Spend</th>
-            </tr>
-        </thead>
-        <tbody id="categorized-summary">
-            <!-- This is where your categorized summary will be dynamically added -->
-        </tbody>
-    </table>
-</div>
+    <!-- Categorized container -->
+    <div class="categorized-container">
+        <h2>Categorized Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Frequency</th>
+                    <th>Total</th>
+                    <th>Average Spend</th>
+                </tr>
+            </thead>
+            <tbody id="categorized-summary">
+                <!-- This is where your categorized summary will be dynamically added -->
+            </tbody>
+        </table>
+    </div>
         
     </div>
 <script>
