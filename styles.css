@@ -16,22 +16,16 @@ body {
 
 /* Input container (25% width, full height, leftmost) */
 .input-container {
-    width: 25%;
-    height: 100vh; /* Full height */
+ text-align: center;
+    width: 28%;
     padding: 20px;
-    border-right: 1px solid #ccc; /* Border to separate from other containers */
-}
-
-.input-container label {
-    margin-bottom: 5px;
-}
-
-.input-container input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+    background: linear-gradient(#fff, #fff) 35%, #e3e3e3 65%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+    margin-right: 10px; /* Add margin to create space */
+    margin-left: 10px; /* Add margin to create space */
+    margin-top: 10px; /* Add margin to create space */
+    margin-bottom: 10px; /* Add margin to create space */
+    border-radius: 10px; /* Adjust the value to control the roundness */
 }
 
 .input-container button {
