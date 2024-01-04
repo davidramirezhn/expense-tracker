@@ -1,0 +1,129 @@
+/* styles.css */
+
+/* Body style */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fffefc;
+    font-family: Arial, sans-serif;
+    color: #000000;
+}
+
+/* Main container for layout */
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px; /* Adjust the value to control the roundness */
+}
+
+/* Profile container (30% width) */
+.profile-container {
+    text-align: center;
+    width: 28%;
+    padding: 20px;
+    background: linear-gradient(#fff, #fff) 35%, #e3e3e3 65%;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+    margin-right: 10px; /* Add margin to create space */
+    margin-left: 10px; /* Add margin to create space */
+    margin-top: 10px; /* Add margin to create space */
+    margin-bottom: 10px; /* Add margin to create space */
+    border-radius: 10px; /* Adjust the value to control the roundness */
+}
+
+/* Resume container (70% width) */
+.resume-container {
+    width: 70%;
+    padding: 20px;
+    background-color: #fff; /* White background */
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
+    margin-right: 10px; /* Add margin to create space */
+    margin-left: 10px; /* Add margin to create space */
+    margin-top: 10px; /* Add margin to create space */
+    margin-bottom: 10px; /* Add margin to create space */
+    border-radius: 10px; /* Adjust the value to control the roundness */
+}
+
+/* Container style for small screens (e.g., mobile) */
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Stack containers vertically */
+    }
+    .profile-container {
+        width: 100%; /* Take full width */
+        padding: 20px;
+    }
+    .resume-container {
+        width: 100%; /* Take full width */
+        padding: 20px;
+    }
+}
+
+/* Header style */
+.header {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.name {
+    font-size: 28px;
+}
+
+/* Style for collapsible sections */
+.collapsible {
+    background-color: #fffefc;
+    color: #000000;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.4s;
+    border-radius: 10px; /* Adjust the value to control the roundness */
+    margin-top: 10px; /* Add margin to create space */
+}
+
+.collapsible:hover {
+    background-color: #fffefc;
+}
+
+.content {
+    padding: 18px;
+    display: none;
+    overflow: hidden;
+    font-size: 14px;
+    background-color: #e3e3e3;
+    color: #000000;
+    border-radius: 10px; /* Adjust the value to control the roundness */
+}
+
+/* Two-column layout for job details */
+.job-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-title {
+    flex: 4;
+    text-align: left;
+    font-size: 90%;
+}
+
+.job-info {
+    flex: 1;
+    text-align: right;
+    font-size: 70%;
+}
+
+horizontal-line {
+    border: none;
+    height: 1px; /* Adjust the height of the line as needed */
+    background-color: #fff; /* Set the color of the line */
+    width: 70%; /* Set the width of the line */
+    margin: 0 auto; /* Center the line horizontally within the container */
+}
