@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRH - Expense Tracker</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Expense Tracker</title>
 </head>
-
 <body>
     <div class="container">
-        <!-- Top Centered Title and Input Container -->
-        <h1 class="header">Expense Tracker</h1>
+        <!-- Input container (25% width, full height, leftmost) -->
         <form id="expense-form" class="input-container">
             <label for="expense-date">Date:</label>
             <input type="date" id="expense-date" required />
@@ -34,25 +31,19 @@
             <button type="submit">Add Expense</button>
         </form>
 
-        <!-- Three Containers Below -->
-        <div class="container">
-            <!-- Left Container: Calendar -->
-            <div class="calendar-container">
-                <!-- Placeholder for the calendar -->
-                <!-- Add your calendar display code here -->
-            </div>
+        <!-- History container (70% width, topmost, scrollable) -->
+        <div class="history-container">
+            <!-- Add your JavaScript logic to dynamically populate the history -->
+        </div>
+        
+        <!-- Calendar container (Squared) -->
+        <div class="calendar-container">
+            <!-- Add your calendar content here -->
+        </div>
 
-            <!-- Center Container: Expense List -->
-            <div class="expense-list-container">
-                <!-- Placeholder for the list of expenses -->
-                <!-- Add your expense list display code here -->
-            </div>
-
-            <!-- Right Container: Categorized Expenses -->
-            <div class="categorized-expenses-container">
-                <!-- Placeholder for categorized expenses -->
-                <!-- Add your categorized expenses display code here -->
-            </div>
+        <!-- Categorized Summary container (Squared) -->
+        <div class="categorized-container">
+            <!-- Add your categorized summary content here -->
         </div>
     </div>
     <script>
