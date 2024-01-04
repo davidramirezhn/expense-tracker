@@ -33,18 +33,46 @@
 
         <!-- History container (70% width, topmost, scrollable) -->
         <div class="history-container">
-            <!-- Add your JavaScript logic to dynamically populate the history -->
-        </div>
+    <h2>Expense History</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Detail 1</th>
+                <th>Detail 2</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="expense-history">
+            <!-- This is where your expenses will be dynamically added -->
+        </tbody>
+    </table>
+</div>
         
         <!-- Calendar container (Squared) -->
         <div class="calendar-container">
             <!-- Add your calendar content here -->
         </div>
 
-        <!-- Categorized Summary container (Squared) -->
         <div class="categorized-container">
-            <!-- Add your categorized summary content here -->
-        </div>
+    <h2>Categorized Summary</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Frequency</th>
+                <th>Total</th>
+                <th>Average Spend</th>
+            </tr>
+        </thead>
+        <tbody id="categorized-summary">
+            <!-- This is where your categorized summary will be dynamically added -->
+        </tbody>
+    </table>
+</div>
+        
     </div>
     <script>
 // Get form, expense list, and total amount elements 
