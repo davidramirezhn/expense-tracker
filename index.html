@@ -1,183 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-<style>
-        /* Body style */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #fffefc;
-            font-family: Arial, sans-serif;
-            color: #000000;
-        }
-
-        /* Main container for layout */
-        .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px; /* Adjust the value to control the roundness */
-        }
-
-        /* Profile container (30% width) */
-        .profile-container {
-            text-align: center;
-            width: 28%;
-            padding: 20px;
-            background: linear-gradient(#fff, #fff) 35%, #e3e3e3 65%;
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
-            margin-right: 10px; /* Add margin to create space */
-            margin-left: 10px; /* Add margin to create space */
-            margin-top: 10px; /* Add margin to create space */
-            margin-bottom: 10px; /* Add margin to create space */
-            border-radius: 10px; /* Adjust the value to control the roundness */
-        }
-        
-        /* Resume container (70% width) */
-        .resume-container {
-            width: 70%;
-            padding: 20px;
-            background-color: #fff; /* White background */
-            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
-            margin-right: 10px; /* Add margin to create space */
-            margin-left: 10px; /* Add margin to create space */
-            margin-top: 10px; /* Add margin to create space */
-            margin-bottom: 10px; /* Add margin to create space */
-            border-radius: 10px; /* Adjust the value to control the roundness */
-        }
-                /* Container style for small screens (e.g., mobile) */
-        @media screen and (max-width: 600px) {
-            .container {
-                flex-direction: column; /* Stack containers vertically */
-            }
-            .profile-container {
-                width: 100%; /* Take full width */
-                padding: 20px;
-            }
-            .resume-container {
-                width: 100%; /* Take full width */
-                padding: 20px;
-            }
-        }
-        /* Header style */
-        .header {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .name {
-            font-size: 28px;
-        }
-
-        /* Style for collapsible sections */
-        .collapsible {
-            background-color: #fffefc;
-            color: #000000;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: 0.4s;
-            border-radius: 10px; /* Adjust the value to control the roundness */
-            margin-top: 10px; /* Add margin to create space */
-        }
-
-        .collapsible:hover {
-            background-color: #fffefc;
-        }
-
-        .content {
-            padding: 18px;
-            display: none;
-            overflow: hidden;
-            font-size: 14px;
-            background-color: #e3e3e3;
-            color: #000000;
-            border-radius: 10px; /* Adjust the value to control the roundness */
-        }
-
-        /* Two-column layout for job details */
-        .job-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .job-title {
-            flex: 4;
-            text-align: left;
-            font-size: 90%;
-        }
-
-        .job-info {
-            flex: 1;
-            text-align: right;
-            font-size: 70%;
-        }
-        horizontal-line {
-        border: none;
-        height: 1px; /* Adjust the height of the line as needed */
-        background-color: #fff; /* Set the color of the line */
-        width: 70%; /* Set the width of the line */
-        margin: 0 auto; /* Center the line horizontally within the container */
-    </style>
-</head>
-<body>
-<!-- Container for the layout -->
-        <div class="container">
-
-        <!-- Profile container -->
-        <div class="profile-container">
-            <!-- Your profile content goes here -->
-            <div class="name">Expense Tracker</div>
-            <p>Web App</p>
-            <hr class="horizontal-line">
-            <!-- Contact information with a different background color and aligned to the left -->
-            <div style="text-align: left; padding: 10px;">
-                <p><strong>Built on:</strong> HTML</p>
-            </div>
-        </div>
-
-     <!-- Resume container -->
-        <div class="resume-container">
-            <!-- Work Experience -->
-            <button class="collapsible" id="workexperience"><strong>Work Experience</strong></button>
-            <div class="content">
-            </div>
-        </div>
-            <!-- Clear floating for proper layout -->
-    <div class="clearfix"></div>
-
-    <script>
-        // Add JavaScript to toggle collapsible sections
-        var coll = document.querySelectorAll(".collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            });
-        }
-    </script>
-    <script>
-        // Add JavaScript code here
-        document.addEventListener("DOMContentLoaded", function() {
-            // Your JavaScript code here
-        });
-    </script>
-</body>
+<!-- index.html -->
+<!DOCTYPE html> 
+<html> 
+  
+<head> 
+    <title>DRH - Expense Tracker</title> 
+    <link rel="stylesheet" 
+          type="text/css" 
+          href="style.css" /> 
+</head> 
+  
+<body> 
+    <div class="container"> 
+        <h1>Expense Tracker</h1> 
+        <form id="expense-form"> 
+            <input type="text" 
+                   id="expense-name" 
+                   placeholder="Expense Name" required /> 
+            <input type="number" 
+                   id="expense-amount" 
+                   placeholder="Amount" required /> 
+            <button type="submit"> 
+                Add Expense 
+            </button> 
+        </form> 
+        <div class="expense-table"> 
+            <table> 
+                <thead> 
+                    <tr> 
+                        <th>Expense Name</th> 
+                        <th>Amount</th> 
+                        <th>Action</th> 
+                    </tr> 
+                </thead> 
+                <tbody id="expense-list"></tbody> 
+            </table> 
+            <div class="total-amount"> 
+                <strong>Total:</strong>  
+                $<span id="total-amount">0</span> 
+            </div> 
+        </div> 
+    </div> 
+    <script src="script.js"></script> 
+</body> 
+  // script.js 
+// Get form, expense list, and total amount elements 
+const expenseForm = 
+    document.getElementById("expense-form"); 
+const expenseList = 
+    document.getElementById("expense-list"); 
+const totalAmountElement = 
+    document.getElementById("total-amount"); 
+  
+// Initialize expenses array from localStorage 
+let expenses =  
+    JSON.parse(localStorage.getItem("expenses")) || []; 
+  
+// Function to render expenses in tabular form 
+function renderExpenses() { 
+  
+    // Clear expense list 
+    expenseList.innerHTML = ""; 
+  
+    // Initialize total amount 
+    let totalAmount = 0; 
+  
+    // Loop through expenses array and create table rows 
+    for (let i = 0; i < expenses.length; i++) { 
+        const expense = expenses[i]; 
+        const expenseRow = document.createElement("tr"); 
+        expenseRow.innerHTML = ` 
+      <td>${expense.name}</td> 
+      <td>$${expense.amount}</td> 
+      <td class="delete-btn" data-id="${i}">Delete</td> 
+    `; 
+        expenseList.appendChild(expenseRow); 
+  
+        // Update total amount 
+        totalAmount += expense.amount; 
+    } 
+  
+    // Update total amount display 
+    totalAmountElement.textContent = 
+        totalAmount.toFixed(2); 
+  
+    // Save expenses to localStorage 
+    localStorage.setItem("expenses",  
+        JSON.stringify(expenses)); 
+} 
+  
+// Function to add expense 
+function addExpense(event) { 
+    event.preventDefault(); 
+  
+    // Get expense name and amount from form 
+    const expenseNameInput = 
+        document.getElementById("expense-name"); 
+    const expenseAmountInput = 
+        document.getElementById("expense-amount"); 
+    const expenseName = 
+        expenseNameInput.value; 
+    const expenseAmount = 
+        parseFloat(expenseAmountInput.value); 
+  
+    // Clear form inputs 
+    expenseNameInput.value = ""; 
+    expenseAmountInput.value = ""; 
+  
+    // Validate inputs 
+    if (expenseName === "" || isNaN(expenseAmount)) { 
+        alert("Please enter valid expense details."); 
+        return; 
+    } 
+  
+    // Create new expense object 
+    const expense = { 
+        name: expenseName, 
+        amount: expenseAmount, 
+    }; 
+  
+    // Add expense to expenses array 
+    expenses.push(expense); 
+  
+    // Render expenses 
+    renderExpenses(); 
+} 
+  
+// Function to delete expense 
+function deleteExpense(event) { 
+    if (event.target.classList.contains("delete-btn")) { 
+  
+        // Get expense index from data-id attribute 
+        const expenseIndex = 
+            parseInt(event.target.getAttribute("data-id")); 
+  
+        // Remove expense from expenses array 
+        expenses.splice(expenseIndex, 1); 
+  
+        // Render expenses 
+        renderExpenses(); 
+    } 
+} 
+  
+// Add event listeners 
+expenseForm.addEventListener("submit", addExpense); 
+expenseList.addEventListener("click", deleteExpense); 
+  
+// Render initial expenses on page load 
+renderExpenses();
 </html>
