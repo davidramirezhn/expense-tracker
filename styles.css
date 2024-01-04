@@ -62,3 +62,10 @@ body {
     flex: 1; /* Equal width, takes remaining space */
     padding: 20px;
 }
+
+horizontal-line {
+    border: none;
+    height: 1px; /* Adjust the height of the line as needed */
+    background-color: #fff; /* Set the color of the line */
+    width: 70%; /* Set the width of the line */
+    margin: 0 auto; /* Center the line horizontally within the container */
