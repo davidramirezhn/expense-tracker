@@ -135,146 +135,153 @@ table {
         </table>
     </div>
     </div>
-<script>
-// Get form, expense list, and total amount elements
-const expenseForm = document.getElementById("expense-form");
-const expenseList = document.getElementById("expense-history");
-const categorizedSummary = document.getElementById("categorized-summary");
-const totalAmountElement = document.getElementById("total-amount");
+    <script>
+        // Get form, expense list, and total amount elements
+        const expenseForm = document.getElementById("expense-form");
+        const expenseList = document.getElementById("expense-list");
+        const categorizedSummaryBody = document.getElementById("categorized-summary-body");
 
-// Initialize expenses array from localStorage
-let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+        // Initialize expenses array from localStorage
+        let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
-// Function to render expenses in tabular form
-function renderExpenses() {
-    // Clear expense list
-    expenseList.innerHTML = "";
+        // Function to render expenses in tabular form
+        function renderExpenses() {
+            // Clear expense list
+            expenseList.innerHTML = "";
 
-    // Initialize total amount
-    let totalAmount = 0;
+            // Initialize total amount
+            let totalAmount = 0;
 
-    // Loop through expenses array and create table rows
-    for (let i = 0; i < expenses.length; i++) {
-        const expense = expenses[i];
-        const expenseRow = document.createElement("tr");
-        expenseRow.innerHTML = `
-      <td>${expense.date}</td>
-      <td>${expense.category}</td>
-      <td>${expense.description}</td>
-      <td>${expense.detail1}</td>
-      <td>${expense.detail2}</td>
-      <td>$${expense.value}</td>
-      <td class="delete-btn" data-id="${i}">Delete</td>
-    `;
-        expenseList.appendChild(expenseRow);
+            // Check if there are expenses
+            if (expenses.length > 0) {
+                // Loop through expenses array and create table rows
+                for (let i = 0; i < expenses.length; i++) {
+                    const expense = expenses[i];
+                    const expenseRow = document.createElement("tr");
+                    expenseRow.innerHTML = `
+                        <td>${expense.date}</td>
+                        <td>${expense.category}</td>
+                        <td>${expense.description}</td>
+                        <td>${expense.detail1}</td>
+                        <td>${expense.detail2}</td>
+                        <td>$${expense.value}</td>
+                        <td class="delete-btn" data-id="${i}">Delete</td>
+                    `;
+                    expenseList.appendChild(expenseRow);
 
-        // Update total amount
-        totalAmount += expense.value;
-    }
+                    // Update total amount
+                    totalAmount += expense.value;
+                }
+            }
 
-    // Update total amount display
-    totalAmountElement.textContent = totalAmount.toFixed(2);
+            // Update total amount display
+            totalAmountElement.textContent = totalAmount.toFixed(2);
 
-    // Save expenses to localStorage
-    localStorage.setItem("expenses", JSON.stringify(expenses));
+            // Save expenses to localStorage
+            localStorage.setItem("expenses", JSON.stringify(expenses));
 
-    // Update categorized summary
-    renderCategorizedSummary();
-}
+            // Update categorized summary
+            renderCategorizedSummary();
 
-// Function to render categorized summary
-function renderCategorizedSummary() {
-    // Clear categorized summary
-    categorizedSummary.innerHTML = "";
-
-    // Create an object to store categorized data
-    const categorizedData = {};
-
-    // Loop through expenses array and categorize data
-    for (let i = 0; i < expenses.length; i++) {
-        const category = expenses[i].category;
-        const value = expenses[i].value;
-
-        // Initialize the category in the categorizedData object if not present
-        if (!categorizedData[category]) {
-            categorizedData[category] = {
-                frequency: 0,
-                total: 0,
-            };
+            // Initialize DataTable
+            $(document).ready(function () {
+                $('#expense-history').DataTable();
+            });
         }
 
-        // Update categorized data
-        categorizedData[category].frequency++;
-        categorizedData[category].total += value;
-    }
+        // Function to render categorized summary
+        function renderCategorizedSummary() {
+            // Clear categorized summary
+            categorizedSummaryBody.innerHTML = "";
 
-    // Loop through categorized data and create table rows
-    for (const category in categorizedData) {
-        const summaryRow = document.createElement("tr");
-        summaryRow.innerHTML = `
-      <td>${category}</td>
-      <td>${categorizedData[category].frequency}</td>
-      <td>$${categorizedData[category].total}</td>
-      <td>$${(categorizedData[category].total / categorizedData[category].frequency).toFixed(2)}</td>
-    `;
-        categorizedSummary.appendChild(summaryRow);
-    }
-}
+            // Create an object to store categorized data
+            const categorizedData = {};
 
-// Function to add expense
-function addExpense(event) {
-    event.preventDefault();
+            // Loop through expenses array and categorize data
+            for (let i = 0; i < expenses.length; i++) {
+                const category = expenses[i].category;
+                const value = expenses[i].value;
 
-    // Get expense data from form
-    const expenseDate = document.getElementById("expense-date").value;
-    const expenseCategory = document.getElementById("expense-category").value;
-    const expenseDescription = document.getElementById("expense-description").value;
-    const expenseDetail1 = document.getElementById("expense-detail1").value;
-    const expenseDetail2 = document.getElementById("expense-detail2").value;
-    const expenseValue = parseFloat(document.getElementById("expense-value").value);
+                // Initialize the category in the categorizedData object if not present
+                if (!categorizedData[category]) {
+                    categorizedData[category] = {
+                        frequency: 0,
+                        total: 0,
+                    };
+                }
 
-    // Validate inputs
-    if (!expenseDate || !expenseCategory || !expenseDescription || isNaN(expenseValue)) {
-        alert("Please enter valid expense details.");
-        return;
-    }
+                // Update categorized data
+                categorizedData[category].frequency++;
+                categorizedData[category].total += value;
+            }
 
-    // Create new expense object
-    const expense = {
-        date: expenseDate,
-        category: expenseCategory,
-        description: expenseDescription,
-        detail1: expenseDetail1,
-        detail2: expenseDetail2,
-        value: expenseValue,
-    };
+            // Loop through categorized data and create table rows
+            for (const category in categorizedData) {
+                const summaryRow = document.createElement("tr");
+                summaryRow.innerHTML = `
+                    <td>${category}</td>
+                    <td>${categorizedData[category].frequency}</td>
+                    <td>$${categorizedData[category].total}</td>
+                    <td>$${(categorizedData[category].total / categorizedData[category].frequency).toFixed(2)}</td>
+                `;
+                categorizedSummaryBody.appendChild(summaryRow);
+            }
+        }
 
-    // Add expense to expenses array
-    expenses.push(expense);
+        // Function to add expense
+        function addExpense(event) {
+            event.preventDefault();
 
-    // Render expenses and categorized summary
-    renderExpenses();
-}
+            // Get expense data from form
+            const expenseDate = document.getElementById("expense-date").value;
+            const expenseCategory = document.getElementById("expense-category").value;
+            const expenseDescription = document.getElementById("expense-description").value;
+            const expenseDetail1 = document.getElementById("expense-detail1").value;
+            const expenseDetail2 = document.getElementById("expense-detail2").value;
+            const expenseValue = parseFloat(document.getElementById("expense-value").value);
 
-// Function to delete expense
-function deleteExpense(event) {
-    if (event.target.classList.contains("delete-btn")) {
-        // Get expense index from data-id attribute
-        const expenseIndex = parseInt(event.target.getAttribute("data-id"));
+            // Validate inputs
+            if (!expenseDate || !expenseCategory || !expenseDescription || isNaN(expenseValue)) {
+                alert("Please enter valid expense details.");
+                return;
+            }
 
-        // Remove expense from expenses array
-        expenses.splice(expenseIndex, 1);
+            // Create new expense object
+            const expense = {
+                date: expenseDate,
+                category: expenseCategory,
+                description: expenseDescription,
+                detail1: expenseDetail1,
+                detail2: expenseDetail2,
+                value: expenseValue,
+            };
 
-        // Render expenses and categorized summary
+            // Add expense to expenses array
+            expenses.push(expense);
+
+            // Render expenses and categorized summary
+            renderExpenses();
+        }
+
+        // Function to delete expense
+        function deleteExpense(event) {
+            if (event.target.classList.contains("delete-btn")) {
+                // Get expense index from data-id attribute
+                const expenseIndex = parseInt(event.target.getAttribute("data-id"));
+
+                // Remove expense from expenses array
+                expenses.splice(expenseIndex, 1);
+
+                // Render expenses and categorized summary
+                renderExpenses();
+            }
+        }
+
+        // Add event listeners
+        expenseForm.addEventListener("submit", addExpense);
+        expenseList.addEventListener("click", deleteExpense);
+
+        // Render initial expenses and categorized summary on page load
         renderExpenses();
-    }
-}
-
-// Add event listeners
-expenseForm.addEventListener("submit", addExpense);
-expenseList.addEventListener("click", deleteExpense);
-
-// Render initial expenses and categorized summary on page load
-renderExpenses();
-</script>
+    </script>
 </html>
