@@ -74,11 +74,12 @@
 </div>
         
     </div>
-    <script>
+<script>
 // Get form, expense list, and total amount elements
 const expenseForm = document.getElementById("expense-form");
-const expenseList = document.getElementById("expense-list");
+const expenseList = document.getElementById("expense-history");
 const categorizedSummary = document.getElementById("categorized-summary");
+const totalAmountElement = document.getElementById("total-amount");
 
 // Initialize expenses array from localStorage
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
@@ -214,6 +215,5 @@ expenseList.addEventListener("click", deleteExpense);
 
 // Render initial expenses and categorized summary on page load
 renderExpenses();
-
-      </script>
+</script>
 </html>
