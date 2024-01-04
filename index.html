@@ -29,5 +29,31 @@
             <div class="content">
             </div>
         </div>
+            <!-- Clear floating for proper layout -->
+    <div class="clearfix"></div>
+
+    <script>
+        // Add JavaScript to toggle collapsible sections
+        var coll = document.querySelectorAll(".collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <script>
+        // Add JavaScript code here
+        document.addEventListener("DOMContentLoaded", function() {
+            // Your JavaScript code here
+        });
+    </script>
 </body>
 </html>
